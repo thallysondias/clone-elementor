@@ -1,39 +1,30 @@
-import GetWebSiteScraper from '../api/scraper/api';
-import GetAllCss from '../api/scraper/getAllCss';
-import GetPageSettings from '../api/scraper/getPageSettings';
-import * as cheerio from 'cheerio';
+import GetWebSiteScraper from "../api/scraper/api";
+import GetAllCss from "../api/scraper/getAllCss";
+import GetPageSettings from "../api/scraper/getPageSettings";
+import * as cheerio from "cheerio";
 
 export default async function Viewer() {
-	const websiteData = await GetWebSiteScraper();
+  const websiteData = await GetWebSiteScraper();
 
-	if (websiteData) {
+  if (websiteData) {
+    const $ = cheerio.load(websiteData);
+    const getAllCss = await GetAllCss(websiteData);
 
-		const $ = cheerio.load(websiteData);
-		const getAllCss = await GetAllCss(websiteData);
+    const pageSettingsData = await GetPageSettings(getAllCss, websiteData);
+    const titleWebsite = $("title").text();
 
-		const pageSettings = await GetPageSettings(getAllCss, websiteData);
-		
-		const titleWebsite = $('meta').text();
-		//console.log("novo" + getAllCss)
+    const json = {
+      title: `Elementor Clone - ${titleWebsite}`,
+      type: "page",
+      version: "0.4",
+      page_settings: pageSettingsData?.page_settings || [],
+      content: [],
+    };
 
-		const json = {
-			title: `Elementor Clone - ${titleWebsite}`,
-			type: "page",
-			version: "1",
-			page_settings: [],
-			content: []
-		};
+    //console.log(json);
+		const item = JSON.stringify(json)
+		console.log(item);
+  }
 
-
-	}
-
-	return (
-		<div>
-
-			Teste 
-		</div>
-	);
-
+  return <div>Teste</div>;
 }
-
-

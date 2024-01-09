@@ -1,0 +1,32 @@
+{
+  "title": "Elementor Clone - Titulo da Página – Omnibees",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "background_color": "#4822F0",
+    "background_background": "classic",
+    "background_image": {
+      "url": "http://omnibees.local/wp-content/uploads/2024/01/Abdomen.png",
+      "source": "url"
+    },
+    "background_position": "center center",
+    "background_attachment": "scroll",
+    "margin": {
+      "unit": "px",
+      "top": "10",
+      "right": "10",
+      "bottom": "10",
+      "left": "10",
+      "isLinked": true
+    },
+    "padding": {
+      "unit": "px",
+      "top": "15",
+      "right": "15",
+      "bottom": "15",
+      "left": "15",
+      "isLinked": true
+    }
+  },
+  "content": []
+}

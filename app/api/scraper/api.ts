@@ -1,7 +1,7 @@
 export default async function GetWebSiteScraper() {
 	try {
 		const urlTeste = 'https://thedesigncreators.com/';
-		const urlTeste2 = 'http://testes.local/pagina-mais-simples/';
+		const urlTeste2 = 'http://omnibees.local/titulo-da-pagina/';
 
 		const response = await fetch(urlTeste2);
 		const data = await response.text();
