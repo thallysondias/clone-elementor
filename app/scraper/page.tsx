@@ -1,6 +1,7 @@
 import GetWebSiteScraper from "../api/scraper/api";
 import GetAllCss from "../api/scraper/getAllCss";
 import GetPageSettings from "../api/scraper/getPageSettings";
+import GetContent from "../api/scraper/getContent";
 import * as cheerio from "cheerio";
 
 export default async function Viewer() {
@@ -11,7 +12,9 @@ export default async function Viewer() {
     const getAllCss = await GetAllCss(websiteData);
 
     const pageSettingsData = await GetPageSettings(getAllCss, websiteData);
+		const contentData = await GetContent(getAllCss, websiteData);
     const titleWebsite = $("title").text();
+
 
     const json = {
       title: `Elementor Clone - ${titleWebsite}`,
@@ -22,8 +25,8 @@ export default async function Viewer() {
     };
 
     //console.log(json);
-		const item = JSON.stringify(json)
-		console.log(item);
+		//const item = JSON.stringify(json)
+		//console.log(item);
   }
 
   return <div>Teste</div>;

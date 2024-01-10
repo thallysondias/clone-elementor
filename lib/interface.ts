@@ -10,6 +10,11 @@ export interface PageSettings {
   background_background?: string;
   background_color?: string;
   background_color_b?: string;
+  background_position?: string;
+  background_repeat?: string;
+  background_size?: string;
+  background_attachment?: string;
+  background_gradient_type?: string;
   background_gradient_angle?: {
     unit?: string;
     size?: number;
@@ -23,12 +28,7 @@ export interface PageSettings {
   background_image?: {
     url: string;
     source: string;
-  };
-  background_position?: string;
-  background_repeat?: string;
-  background_size?: string;
-  background_attachment?: string;
-  background_gradient_type?: string;
+  };  
   margin?: {
     unit: string;
     top: string;
@@ -38,7 +38,12 @@ export interface PageSettings {
     isLinked: boolean;
   };
   padding?: {
-    // Estrutura para padding
+    unit?: string;
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+    isLinked?: boolean;
   };
   // Outras propriedades...
 }

@@ -1,15 +1,17 @@
 {
-  "title": "Elementor Clone - Titulo da Página – Omnibees",
+  "title": "Elementor Clone - url",
   "type": "page",
   "version": "0.4",
   "page_settings": {
-    "background_color": "#4822F0",
+    "background_color": "#D6A8A8",
     "background_background": "classic",
     "background_image": {
-      "url": "http://omnibees.local/wp-content/uploads/2024/01/Abdomen.png",
+      "url": "http://testes.local/wp-content/uploads/2024/01/jetpack.png",
       "source": "url"
     },
-    "background_position": "center center",
+    "background_position": "bottom right",
+    "background_repeat": "repeat",
+    "background_size": "auto",
     "background_attachment": "scroll",
     "margin": {
       "unit": "px",
@@ -21,10 +23,10 @@
     },
     "padding": {
       "unit": "px",
-      "top": "15",
-      "right": "15",
-      "bottom": "15",
-      "left": "15",
+      "top": "16",
+      "right": "16",
+      "bottom": "16",
+      "left": "16",
       "isLinked": true
     }
   },
