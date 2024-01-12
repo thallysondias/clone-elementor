@@ -5,12 +5,12 @@ export default async function GetPageSettings(
   getAllCss: any,
   websiteData: string
 ) {
+ 
   const pageId: string | null = getPageId(websiteData);
   if (pageId) {
     const pageStyleFiltered = stylePageSettings(getAllCss, pageId);
-    const pageSettings = pageSettingsconstructor(pageStyleFiltered);
-
-    return pageSettings;
+    const pageSettingsData = pageSettingsconstructor(pageStyleFiltered);
+    return pageSettingsData;
   } else {
     console.log("Page ID not found");
   }
@@ -126,9 +126,6 @@ export function pageSettingsconstructor(pageStyleFiltered: any) {
       isLinked: new Set(styles.padding.split(" ")).size === 1,
     };
   }
-
-  console.log(jsonPageSettings);
-
   return jsonPageSettings;
 }
 

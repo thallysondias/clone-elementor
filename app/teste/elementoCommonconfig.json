@@ -1,0 +1,84 @@
+{
+  "title": "Elementor Clone - Teste Json – Omnibees",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "background_color": "#D6A8A8",
+    "margin": {
+      "unit": "px",
+      "top": "10",
+      "right": "10",
+      "bottom": "10",
+      "left": "10",
+      "isLinked": true
+    },
+    "padding": {
+      "unit": "px",
+      "top": "16",
+      "right": "16",
+      "bottom": "16",
+      "left": "16",
+      "isLinked": true
+    }
+  },
+  "content": [
+    {
+      "id": "0d7925e",
+      "elType": "section",
+      "widgetType": {},
+      "settings": { "background_background": "classic" },
+      "elements": [
+        {
+          "id": "0f909b1",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {},
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": 5799323,
+      "elType": "column",
+      "widgetType": {},
+      "settings": {},
+      "elements": []
+    },
+    {
+      "id": "0f909b1",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {},
+      "elements": []
+    },
+    {
+      "id": "66c0abb",
+      "elType": "section",
+      "widgetType": {},
+      "settings": { "background_background": "classic" },
+      "elements": [
+        {
+          "id": "bf53e05",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {},
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "a6db33e",
+      "elType": "column",
+      "widgetType": {},
+      "settings": {},
+      "elements": []
+    },
+    {
+      "id": "bf53e05",
+      "elType": "widget",
+      "widgetType": "image",
+      "settings": {},
+      "elements": []
+    }
+  ]
+}

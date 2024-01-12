@@ -1,76 +1,66 @@
+import { parse } from "node-html-parser";
+import { PageContent, JsonStructure } from "@/lib/interface";
 
-import * as cheerio from "cheerio";
-import { parse } from 'node-html-parser';
+export default async function Experiment(getAllCss: any, websiteData: string): Promise<JsonStructure> {
+  let jsonTree: PageContent[] = []; // jsonTree is an array of PageContent
 
-const html = `<body data-elementor-type="1">    
-<div data-id="1" data-settings="muitas"></div>
-<div>
-  <div>
-    <div data-id="2" data-settings="outras">
-        <div data-id="3" data-settings="qualquer"></div>
-        <div data-id="4" data-settings="quatro"></div>
-    </div>
-  </div>
-</div>
-    <div data-id="5" data-settings="cinco">
-        <div data-id="6" data-settings="6">
-            <div data-id="7" data-settings="7"></div>
-        </div>
-    </div>
-<body>`
+  if (websiteData) {
+    jsonTree = createJsonFromString(websiteData);
+    //console.log(jsonTree);
+  }
 
-export default async function Experiment(getAllCss, websiteData) {
-
-    if (websiteData) {
-        let htmlContent = websiteData;
-        let jsonTree = createJsonFromString(html);
-        //console.log(jsonTree);
-        return jsonTree
-    }
+  return { jsonTree }; // return jsonTree wrapped in an object
 }
 
-function createJsonFromString(htmlString) {
-    // Parse the HTML string
-    const root = parse(htmlString);
+function createJsonFromString(websiteData: string): PageContent[] {
+  // Parse the HTML string
+  const root = parse(websiteData);
 
-    // Use the same logic on the parsed document
-    return createJsonFromHtml(root.querySelector('body'));
+  // Use the same logic on the parsed document
+  return createJsonFromHtml(root.querySelector("body"));
 }
 
-function createJsonFromHtml(element) {
-    let jsonTree = [];
+function createJsonFromHtml(element: any): PageContent[] {
+  let jsonTree: PageContent[] = [];
 
-    function processElement(child) {
-        if (child.getAttribute('data-id')) {
-            let childJson = {
-                id: child.getAttribute('data-id'),
-                settings: child.getAttribute('data-settings'),
-                elements: []
-            };
+  function processElement(child: any): PageContent[] {
+    if (child.getAttribute("data-id")) {
+      let childJson: PageContent = {
+        id: child.getAttribute("data-id"),
+        element_type: child.getAttribute("data-element_type"),
+        settings: child.getAttribute("data-settings"),
+        elements: [],
+      };
 
-            child.childNodes.forEach(grandchild => {
-                if (grandchild.nodeType === 1) { // Check if the node is an element
-                    childJson.elements.push(...processElement(grandchild));
-                }
-            });
+      let widgetType = child.getAttribute("data-widget_type");
+      if (widgetType) {
+        widgetType = widgetType.trim().replace(/\.default/g, "");
+        childJson.widget_type = widgetType;
+      }
 
-            return [childJson];
-        } else {
-            let nestedElements = [];
-            child.childNodes.forEach(grandchild => {
-                if (grandchild.nodeType === 1) { // Check if the node is an element
-                    nestedElements.push(...processElement(grandchild));
-                }
-            });
-            return nestedElements;
+      child.childNodes.forEach((grandchild: any) => {
+        if (grandchild.nodeType === 1) { // Check if the node is an element
+          childJson.elements.push(...processElement(grandchild));
         }
+      });
+
+      return [childJson];
+    } else {
+      let nestedElements: PageContent[] = [];
+      child.childNodes.forEach((grandchild: any) => {
+        if (grandchild.nodeType === 1) { // Check if the node is an element
+          nestedElements.push(...processElement(grandchild));
+        }
+      });
+      return nestedElements;
     }
+  }
 
-    element.childNodes.forEach(child => {
-        if (child.nodeType === 1) { // Check if the node is an element
-            jsonTree.push(...processElement(child));
-        }
-    });
+  element.childNodes.forEach((child: any) => {
+    if (child.nodeType === 1) { // Check if the node is an element
+      jsonTree.push(...processElement(child));
+    }
+  });
 
-    return jsonTree;
+  return jsonTree;
 }

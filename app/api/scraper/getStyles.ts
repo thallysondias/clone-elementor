@@ -22,7 +22,7 @@ export default async function GetStyles(websiteData: string) {
 
     const fetchPromises = linkElements.map((link) => {
       const href = link.getAttribute("href");
-      return href ? fetchCss(href) : Promise.resolve("sim");
+      return href ? fetchCss(href) : Promise.resolve("");
     });
 
     try {
@@ -38,17 +38,14 @@ export default async function GetStyles(websiteData: string) {
 }
 
 async function fetchCss(href: string) {
-	try {
-			const response = await fetch(href, { cache: "no-store" });
-
-			// Check if the fetch request was successful
-			if (!response.ok) {
-					throw new Error(`HTTP error! status: ${response.status}`);
-			}
-
-			return await response.text();
-	} catch (error) {
-			console.error(`Error fetching CSS from ${href}:`, error);
-			return "";
-	}
+  try {
+    const response = await fetch(href, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.text();
+  } catch (error) {
+    console.error(`Error fetching CSS from ${href}:`, error);
+    return "";
+  }
 }

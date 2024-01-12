@@ -1,0 +1,63 @@
+.elementor-303
+  .elementor-element.elementor-element-0d7925e:not(
+    .elementor-motion-effects-element-type-background
+  ),
+.elementor-303
+  .elementor-element.elementor-element-0d7925e
+  > .elementor-motion-effects-container
+  > .elementor-motion-effects-layer {
+  background-color: #ffffff;
+}
+.elementor-303 .elementor-element.elementor-element-0d7925e {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 15px 15px 15px 15px;
+}
+.elementor-303
+  .elementor-element.elementor-element-0d7925e
+  > .elementor-background-overlay {
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.elementor-303 .elementor-element.elementor-element-0f909b1 {
+  text-align: left;
+}
+.elementor-303
+  .elementor-element.elementor-element-0f909b1
+  .elementor-heading-title {
+  color: #000000;
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  -webkit-text-stroke-width: 3px;
+  stroke-width: 3px;
+  -webkit-text-stroke-color: #000;
+  stroke: #000;
+}
+.elementor-303
+  .elementor-element.elementor-element-66c0abb:not(
+    .elementor-motion-effects-element-type-background
+  ),
+.elementor-303
+  .elementor-element.elementor-element-66c0abb
+  > .elementor-motion-effects-container
+  > .elementor-motion-effects-layer {
+  background-color: #f53131;
+}
+.elementor-303 .elementor-element.elementor-element-66c0abb {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+.elementor-303
+  .elementor-element.elementor-element-66c0abb
+  > .elementor-background-overlay {
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+body.elementor-page-303 {
+  margin: 10px 10px 10px 10px;
+  padding: 16px 16px 16px 16px;
+}
+body.elementor-page-303:not(.elementor-motion-effects-element-type-background),
+body.elementor-page-303
+  > .elementor-motion-effects-container
+  > .elementor-motion-effects-layer {
+  background-color: #d6a8a8;
+}

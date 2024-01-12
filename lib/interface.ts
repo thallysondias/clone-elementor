@@ -47,3 +47,27 @@ export interface PageSettings {
   };
   // Outras propriedades...
 }
+
+export interface JsonStructure {
+  content?: PageContent[]
+}
+
+export interface PageContent {
+  id: string | null;
+  elType: string;
+  widget_type?: string | null;
+  settings?: string;
+  isInner?: boolean;
+  elements: PageContent[]
+}
+
+export interface ContentSettings {
+  title?: string;
+  header_size?: string;
+  align?: string;
+  title_color?: string;
+  typography_typography?: string;
+  typography_font_family?: string;
+  typography_font_weight?: string;
+  text_stroke_text_stroke_type?: [];
+}
