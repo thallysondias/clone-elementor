@@ -26,8 +26,8 @@ export default async function Viewer() {
     };
 
     //console.log(json);
-   /*  const item = JSON.stringify(json, null, 2);
-    console.log(item); */
+    const item = JSON.stringify(json, null, 2);
+    console.log(item);
   }
 
   return <div>Teste</div>;

@@ -4,7 +4,7 @@ export default async function GetWebSiteScraper() {
     const urlTeste2 = "http://omnibees.local/teste-json/";
     const urlTeste3 = "https://www.arcadialuxuryvillas.com/";
 
-    const response = await fetch(urlTeste);
+    const response = await fetch(urlTeste2);
     const data = await response.text();
 
     if (!response.ok) {
